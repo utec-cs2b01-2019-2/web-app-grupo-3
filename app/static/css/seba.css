@@ -1,0 +1,19 @@
+html{
+    font-family: 'Roboto', sans-serif;
+}
+.row>div{
+    /*background: #dbdbdb; */
+    margin: 10px 0;
+    text-align: center;
+}
+h1,form{
+    text-align: center;
+}
+body{
+    background-image: url('/static/images/machine learning 2.png');
+    color: white;
+}
+
+ p > input{
+     border-radius: 5px;
+ }

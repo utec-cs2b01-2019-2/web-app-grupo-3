@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% if current_user.is_authenticated %}
+	    {% if current_user.gender=='M' %}
+		    <h1>Hola, {{ current_user.username }} bienvenido al mundo de CS!</h1>
+	    {% else %}
+		    <h1>Hola, {{ current_user.username }} bienvenida al mundo de CS!</h1>
+	    {% endif %}
+    {% else %}
+        <h1>Descrube el mundo de la computacion!</h1>
+    {% endif %}
+    {% if form %} <!-- chequea si existe una forma -->
+    <form action="" method="post">
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.post.label }}<br>
+            {{ form.post(cols=32, rows=4) }}<br>
+            {% for error in form.post.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>{{ form.submit() }}</p>
+    </form>
+    {% endif %}
+    {% for post in posts %}
+        {% include "_post.html" %}
+    {% endfor %}
+{% endblock %}
