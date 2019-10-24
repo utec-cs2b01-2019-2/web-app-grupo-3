@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="696ca200-d612-48a7-a6cd-01559f1a70da" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/code/app.db" beforeDir="false" afterPath="$PROJECT_DIR$/code/app.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/app/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/app/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/app/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/app/routes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/app/templates/_post.html" beforeDir="false" afterPath="$PROJECT_DIR$/code/app/templates/_post.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/app/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/code/app/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/app/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/code/app/templates/index.html" afterDir="false" />
-    </list>
+    <list default="true" id="696ca200-d612-48a7-a6cd-01559f1a70da" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
