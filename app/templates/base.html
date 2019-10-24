@@ -2,6 +2,9 @@
 <html lang="es">
 	<head>
 		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<link rel="stylesheet" href="/static/css/bootstrap-grid.min.css">
+		<link rel="stylesheet" href="/static/css/bootstrap.css">
 		<title>{{ title }} - Computer Science UTEC, Bootstrap </title>
 	</head>
 	<body >
@@ -9,10 +12,10 @@
 			<div class="row justify-content-center">
 				<div class="col">CS UTEC:
 					<a href="{{ url_for('index') }}">Home</a>
-                    <a href="{{ url_for('explore') }}">Explore</a>
 					{% if current_user.is_anonymous %}
 					<a href="{{ url_for('login') }}">LogIn</a>
 					{% else %}
+					<a href="{{ url_for('explore') }}">Explore</a>
 					<a href="{{ url_for('user', username=current_user.username) }}">Perfil</a>
 					<a href="{{ url_for('cursos') }}" >Cursos</a>
 					<a href="{{ url_for('logout') }}">Logout</a>
@@ -29,7 +32,12 @@
 		</ul>
 		{% endif %}
 		{% endwith %}
+		<div style = "text-align: center">
 		{% block content %}
 		{% endblock %}
+		</div>
+		<script src="/static/js/jquery-3.4.1.min"></script>
+		<script src="/static/js/popper.min"></script>
+		<script src="/static/js/bootstrap.min"></script>
 	</body>
 </html>
