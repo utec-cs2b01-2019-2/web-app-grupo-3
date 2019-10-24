@@ -1,1 +1,2 @@
-web: flask db upgrade; flask translate compile; gunicorn pagWeb:app
+web: gunicorn app:app
+
