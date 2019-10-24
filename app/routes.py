@@ -13,7 +13,7 @@ def user(username):
     posts = current_user.user_posts()
     return render_template('user.html', user=user, posts=posts)
 
-@app.route('/posts')
+@app.route('/posts', methods=['GET','POST'])
 @login_required
 def posts():
     form=PostForm()
