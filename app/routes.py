@@ -6,19 +6,30 @@ from app.forms import LoginForm, RegistrationForm, EditProfileForm, PostForm
 from app.models import User, Post
 from datetime import datetime
 
-@app.route('/', methods=['GET', 'POST'])
-@app.route('/index', methods=['GET', 'POST'])
+@app.route('/user/<username>')
 @login_required
-def index():
+def user(username):
+    user = User.query.filter_by(username=username).first_or_404()
+    posts = current_user.user_posts()
+    return render_template('user.html', user=user, posts=posts)
+
+@app.route('/posts')
+@login_required
+def posts():
     form=PostForm()
     if form.validate_on_submit():
         post = Post(body=form.post.data, author=current_user)
         db.session.add(post)
         db.session.commit()
         flash('Enhorabuena! Haz hecho un post!')
-        return redirect(url_for('index'))
+        return redirect(url_for('posts'))
     posts = current_user.followed_posts().all()
-    return render_template("index.html", title="Home", form=form, posts=posts)
+    return render_template("posts.html", title="Escribe algo!", form=form, posts=posts)
+
+@app.route('/')
+@app.route('/index')
+def index():
+    return render_template("index.html", title="Home")
 
 @app.route('/cursos')
 @login_required
@@ -68,17 +79,6 @@ def before_request():
     if current_user.is_authenticated:
         current_user.last_seen = datetime.utcnow()
         db.session.commit()
-
-@app.route('/user/<username>')
-@login_required
-def user(username):
-    user = User.query.filter_by(username=username).first_or_404()
-    posts = [
-        {'author': user, 'body': 'Test post #1'},
-        {'author': user, 'body': 'Test post #2'}
-    ]
-    return render_template('user.html', user=user, posts=posts)
-
 
 @app.route('/edit_profile', methods=['GET', 'POST'])
 @login_required

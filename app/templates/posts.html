@@ -10,11 +10,20 @@
     {% else %}
         <h1>Descrube mundo de la computacion!</h1>
     {% endif %}
+    {% if form %} <!-- chequea si existe una forma -->
+    <form action="" method="post">
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.post.label }}<br>
+            {{ form.post(cols=32, rows=4) }}<br>
+            {% for error in form.post.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>{{ form.submit() }}</p>
+    </form>
+    {% endif %}
     {% for post in posts %}
         {% include "_post.html" %}
     {% endfor %}
-<h2>Quienes somos?</h2>
-<p>Somos la comunidad de alumnos de Computer Science en Utec</p>
-<h2>Porque consideramos que CS es la mejor carrera y la mas importante?</h2>
-<p>“Computer science is the study of problem solving. A computer scientist views a computer the way an astronomer views a telescope. It's a way to get at what you're really interested in studying.” </p>
 {% endblock %}

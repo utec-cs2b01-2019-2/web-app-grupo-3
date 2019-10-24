@@ -57,6 +57,9 @@ class User(UserMixin, db.Model):
                 followers.c.follower_id == self.id)
         return followed.union(self.posts).order_by(Post.timestamp.desc())
 
+    def user_posts(self):
+        return self.posts
+
 @login.user_loader
 def load_user(id):
     return User.query.get(int(id))
@@ -70,7 +73,6 @@ class Profesor(db.Model):
     def __repr__(self):
         return '<Profesor {}>'.format(self.name)
 
-    
 class Curso(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(90), index = True, unique = True)
@@ -78,6 +80,10 @@ class Curso(db.Model):
 
     def __repr__(self):
         return '<Curso {}>'.format(self.name)
+
+    def show_cursos(self):
+        cursos = Curso.query.get(all)
+        return cursos
 
 class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True)
