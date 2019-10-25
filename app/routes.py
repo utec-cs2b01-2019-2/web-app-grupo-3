@@ -36,7 +36,7 @@ def index():
 def cursos():
     return render_template('cursos.html', title='Listado de Cursos')
 
-@app.route('/cursos')
+@app.route('/importancia')
 @login_required
 def importancia():
     return render_template('importancia.html', title='Importante')
