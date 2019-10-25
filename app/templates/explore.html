@@ -1,9 +1,13 @@
 {% extends "base.html" %}
 
 {% block content %}
+    <br>
+    <br>
     {% if current_user.is_authenticated %}
 		    <h1>Hola, {{ current_user.username }} bienvenido al mundo de CS!</h1>
     {% endif %}
+    <br>
+    <br>
     {% for post in posts %}
         {% include "_post.html" %}
     {% endfor %}
