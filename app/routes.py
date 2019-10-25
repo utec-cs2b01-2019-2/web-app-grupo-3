@@ -137,7 +137,7 @@ def delete(username):
     db.session.delete(user)
     db.session.commit()
     flash('Usuario eliminado')
-    return render_template("login.html",title='Deleted')
+    return render_template("index.html",title='Deleted')
 
 
 @app.route('/temp')
