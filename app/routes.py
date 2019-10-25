@@ -126,7 +126,7 @@ def unfollow(username):
 @login_required
 def explore():
     posts = Post.query.order_by(Post.timestamp.desc()).all()
-    return render_template('index.html', title='Explore', posts=posts)
+    return render_template('explore.html', title='Explore', posts=posts)
 
 @app.route('/delete/<username>/')
 @login_required
