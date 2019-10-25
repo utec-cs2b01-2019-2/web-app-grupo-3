@@ -48,10 +48,6 @@ def login():
             flash('Nombre de usuario o password equivocado.')
             return redirect(url_for('login'))
         login_user(user, remember=form.remember_me.data)
-        next_page = request.args.get('next')
-        if not next_page or  url_parse(next_page).netloc != '':
-            next_page = url_for('index')
-        return redirect(next_page)
     return render_template('login.html', title='Sing In', form=form)
 
 @app.route('/logout')
@@ -132,3 +128,17 @@ def explore():
     posts = Post.query.order_by(Post.timestamp.desc()).all()
     return render_template('index.html', title='Explore', posts=posts)
 
+@app.route('/delete/<username>/')
+@login_required
+def delete(username):
+    user = User.query.filter_by(username=username).first()
+    db.session.delete(user)
+    db.session.commit()
+    flash('Usuario eliminado')
+    return render_template("login.html",title='Deleted')
+
+
+@app.route('/temp')
+@login_required
+def temp():
+    return render_template('temp.html', title='Quelocura')

@@ -17,6 +17,7 @@
                 {% endif %}
             </td>
         </tr>
+      <p><a href="{{ url_for('delete', username=user.username) }}">BorrarUsuario</a></p>
   </table>
     {% for post in posts %}
         {% include "_post.html" %}
