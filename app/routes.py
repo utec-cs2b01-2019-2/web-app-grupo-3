@@ -34,8 +34,16 @@ def index():
 @app.route('/cursos')
 @login_required
 def cursos():
-    cursos=[{'nombre': 'Teoria de la Computacion'}, {'nombre':'Programacion Orientada a Objetos 1'}, {'nombre':'Intro. a Ciencia de la Computacion'}]
-    return render_template('cursos.html', title='Listado de Cursos', cursos=cursos)
+    return render_template('cursos.html', title='Listado de Cursos')
+
+@app.route('/cursos')
+@login_required
+def importancia():
+    return render_template('importancia.html', title='Importante')
+
+
+
+
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -48,6 +56,8 @@ def login():
             flash('Nombre de usuario o password equivocado.')
             return redirect(url_for('login'))
         login_user(user, remember=form.remember_me.data)
+    if current_user.is_authenticated:
+        return redirect(url_for('index'))
     return render_template('login.html', title='Sing In', form=form)
 
 @app.route('/logout')

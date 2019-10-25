@@ -6,16 +6,22 @@
 		<link rel="stylesheet" href="/static/css/bootstrap-grid.min.css">
 		<link rel="stylesheet" href="/static/css/bootstrap.css">
 		<title>{{ title }} - Computer Science UTEC, Bootstrap </title>
+		<style>
+			div.letter{
+				font-size: 150%;
+			}
+		</style>
 	</head>
 	<body >
 		<div class="container text-center">
 			<div class="row justify-content-center">
-				<div class="col">CS UTEC:
+				<div class="col letter">CS UTEC:
 					<a href="{{ url_for('index') }}">Home</a>
 					{% if current_user.is_anonymous %}
 					<a href="{{ url_for('login') }}">LogIn</a>
 					{% else %}
 					<a href="{{ url_for('explore') }}">Explore</a>
+					<a href="{{ url_for('importancia') }}">Importante</a>
 					<a href="{{ url_for('user', username=current_user.username) }}">Perfil</a>
 					<a href="{{ url_for('cursos') }}" >Cursos</a>
 					<a href="{{ url_for('posts') }}">Posts</a>

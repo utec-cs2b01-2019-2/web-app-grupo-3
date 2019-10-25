@@ -1,6 +1,8 @@
 {% extends "base.html" %}
 
 {% block content %}
+    <br>
+    <br>
     {% if current_user.is_authenticated %}
 	    {% if current_user.gender=='M' %}
 		    <h1>Hola, {{ current_user.username }} bienvenido al mundo de CS!</h1>
@@ -8,13 +10,20 @@
 		    <h1>Hola, {{ current_user.username }} bienvenida al mundo de CS!</h1>
 	    {% endif %}
     {% else %}
-        <h1>Descrube mundo de la computacion!</h1>
+        <h1>Desubre mundo de la computacion!</h1>
     {% endif %}
     {% for post in posts %}
         {% include "_post.html" %}
     {% endfor %}
     <h2>Quienes somos?</h2>
     <p>Somos la comunidad de alumnos de Computer Science en Utec</p>
-    <h2>Porque consideramos que CS es la mejor carrera y la mas importante?</h2>
+    <h2>¿Porque consideramos que CS es la mejor carrera y la mas importante?</h2>
     <p>“Computer science is the study of problem solving. A computer scientist views a computer the way an astronomer views a telescope. It's a way to get at what you're really interested in studying.” </p>
+    <br>
+    <h4> Aquí Podras: </h4>
+    <br>
+    <h5> Compartir tus mejores proyectos de los cursos que has llevado! </h5>
+    <h5> Conocer las actividades que se están llevando dentro de la carrera!</h5>
+    <h5> Conocer a estudiante con intereses afines a los tuyos!   </h5>
 {% endblock %}
+
