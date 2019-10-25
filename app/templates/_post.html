@@ -1,6 +1,8 @@
   <table style = "text-align: center">
         <tr valign="top">
+            {% if post.author != none %}
             <td><img src="{{ post.author.avatar(36) }}"></td>
+            {% endif %}
             <td>
                 <a href="{{ url_for('user', username=post.author.username) }}">
                     {{ post.author.username }}

@@ -132,6 +132,8 @@ def explore():
 @login_required
 def delete(username):
     user = User.query.filter_by(username=username).first()
+    for post in user.posts:
+        posts.remove(post)
     db.session.delete(user)
     db.session.commit()
     flash('Usuario eliminado')
